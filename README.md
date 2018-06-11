@@ -12,7 +12,7 @@
 ```sh
 [install ansible]
 yum install ansible 
-
+pip install shade
 ```
 
 
