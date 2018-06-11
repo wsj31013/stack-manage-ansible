@@ -2,11 +2,11 @@
 
 # variables for auth
 auth_url: "http://10.10.10.10:35357/v3"
-username: "admin"
-password: "adminpassword"
-project_name: "admin"
+username: "admin" # openstack user
+password: "adminpassword" # openstack user password
+project_name: "admin" # openstack project name
 
-# variables for network
+# variables for vlan network
 network_name: "vlan-200"
 network_type: "vlan"
 physical_network: "provider1"
@@ -35,8 +35,8 @@ fixed_ip: "10.10.200.50"
 
 # variables for instance
 instance_display_name: "centos01"
-key_file: "osc_cloud-key"
+key_file: "Your Key Pair"
 flavor: "m1.small"
 security_groups: "default"
-network_id: "3b31d1ac-16b9-44e9-871f-76aa707ba4f7"
+network_id: "Your Network ID"
 hostname: "centos01"
