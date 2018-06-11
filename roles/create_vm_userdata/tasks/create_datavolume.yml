@@ -1,0 +1,15 @@
+---
+# tasks file for create_vm_userdata
+
+- name: create data volume
+  os_volume:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    state: present
+    size: '{{ data_size }}'
+    display_name: '{{ data_display_name }}'
+    timeout: 180
+    wait: yes

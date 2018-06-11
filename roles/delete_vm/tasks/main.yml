@@ -1,0 +1,5 @@
+---
+# tasks file for roles/delete_vm
+- include: delete_vm.yml
+- include: delete_bootvolume.yml
+- include: delete_datavolume.yml

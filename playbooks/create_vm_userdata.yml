@@ -1,0 +1,7 @@
+---
+- name: create volume and instance with user-data
+  hosts: localhost
+
+  roles:
+    - create_vm_userdata
+

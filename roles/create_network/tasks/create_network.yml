@@ -1,0 +1,19 @@
+---
+# tasks file for roles/create_network
+
+- name: create network 
+  os_network:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    name: '{{ network_name }}'
+    project: '{{ project_name }}'
+    provider_network_type: '{{ network_type }}'
+    provider_physical_network: '{{ physical_network }}'
+    provider_segmentation_id: '{{ segmentation_id }}'
+    admin_state_up: True
+    shared: True
+    external: True
+    state: present    

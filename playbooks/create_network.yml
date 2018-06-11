@@ -1,0 +1,6 @@
+---
+- name: create network and subnet (default vlan)
+  hosts: localhost
+
+  roles:
+    - create_network

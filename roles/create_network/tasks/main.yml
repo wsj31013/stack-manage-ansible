@@ -1,0 +1,4 @@
+---
+# tasks file for roles/create_network
+- include: create_network.yml
+- include: create_subnet.yml

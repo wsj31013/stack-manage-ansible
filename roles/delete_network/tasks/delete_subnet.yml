@@ -1,0 +1,12 @@
+---
+# tasks file for roles/delete_network
+
+- name: delete subnet
+  os_subnet:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    name: '{{ subnet_name }}'
+    state: absent

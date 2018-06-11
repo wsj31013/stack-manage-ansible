@@ -1,0 +1,5 @@
+---
+# tasks file for create_vm
+- include: create_bootvolume.yml
+- include: create_datavolume.yml
+- include: create_vm.yml

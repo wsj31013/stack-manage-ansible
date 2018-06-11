@@ -1,0 +1,7 @@
+---
+- name: delete subnet and network
+  hosts: localhost
+
+  roles:
+    - delete_network
+

@@ -1,0 +1,7 @@
+[node]
+localhost ansible_host=cloud-deploy
+
+[all:vars]
+ansible_connection=local
+ansible_ssh_user=root
+ansible_ssh_pass=dntjdwls12

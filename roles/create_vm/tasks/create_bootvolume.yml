@@ -1,0 +1,16 @@
+---
+# tasks file for create_vm
+
+- name: create boot volume from image
+  os_volume:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    state: present
+    size: '{{ boot_size }}'
+    display_name: '{{ boot_display_name }}'
+    image: '{{ boot_image }}'
+    timeout: 180
+    wait: yes

@@ -1,0 +1,4 @@
+---
+# tasks file for roles/delete_network
+- include: delete_subnet.yml
+- include: delete_network.yml

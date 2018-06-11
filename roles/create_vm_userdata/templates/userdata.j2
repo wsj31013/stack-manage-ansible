@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#----- setting for repo client -----#
+REPONET=`route -n | awk '{print $1}' |grep -i 10.10 | rev | cut -c 3- | rev`
+REPOSERVER=$REPONET.250
+
+#----- yum repository -----#
+rm -rf /etc/yum.repos.d/*
+for REPO in base updates extras epel
+do
+cat <<EF >/etc/yum.repos.d/${REPO}.repo
+[$REPO]
+name=$REPO
+baseurl=http://$REPOSERVER/$REPO
+gpgcheck=0
+enabled=1
+EF
+done
+
+#----- setting for sshd server -----#
+sed -i -e 's/#UseDNS yes/UseDNS no/' /etc/ssh/sshd_config
+sed -i -e 's|^PasswordAuthentication no|PasswordAuthentication yes|g' /etc/ssh/sshd_config
+sed -i -e 's/#PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config
+sed -i -e 's/#Port 22/Port 19922/' /etc/ssh/sshd_config
+sed -i -e 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+
+#----- setting for user , password and selinux -----#
+echo 'dhvmsthtm12!@' | passwd --stdin centos
+setenforce 0
+systemctl restart sshd
+
+#----- time zone -----#
+timedatectl set-timezone Asia/Seoul
+
+#----- disable cloud-init -----#
+systemctl disable cloud-init
+systemctl disable cloud-init-local
+systemctl disable cloud-config
+systemctl disable cloud-final

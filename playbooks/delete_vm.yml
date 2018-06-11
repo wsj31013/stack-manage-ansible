@@ -1,0 +1,6 @@
+---
+- name: delete volume and instance
+  hosts: localhost
+  
+  roles:
+    - delete_vm

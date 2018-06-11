@@ -1,0 +1,6 @@
+---
+- name: create flavor
+  hosts: localhost
+  
+  roles:
+    - create_flavor

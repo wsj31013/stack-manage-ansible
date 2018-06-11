@@ -1,0 +1,6 @@
+---
+- name: create volume and instance
+  hosts: localhost
+  
+  roles:
+    - create_vm

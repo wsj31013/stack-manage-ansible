@@ -1,0 +1,19 @@
+---
+# tasks file for roles/create_network
+
+- name: create subnet
+  os_subnet:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    name: '{{ subnet_name }}'
+    network_name: '{{ network_name }}'
+    gateway_ip: '{{ gateway_ip }}'
+    cidr: '{{ cidr }}'
+    enable_dhcp: True
+    allocation_pool_start: '{{ pool_start }}'
+    allocation_pool_end: '{{ pool_end }}'
+    ip_version: '{{ ip_version }}'
+    state: present

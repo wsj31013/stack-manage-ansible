@@ -1,0 +1,38 @@
+---
+# tasks file for create_vm_userdata
+
+- name: create fixed_ip for instance
+  os_port:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+    name: '{{ fixed_ip_name }}'
+    network: '{{ network_id }}'
+    state: present
+    fixed_ips:
+      - ip_address: '{{ fixed_ip }}'
+
+- name: launch an instance
+  os_server:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    name: '{{ instance_display_name }}'
+    boot_volume: '{{ boot_display_name }}'
+    key_name: '{{ key_file }}'
+    timeout: 200
+    flavor: '{{ flavor }}'
+    security_groups: '{{ security_groups }}'
+    nics:
+      #- net-id: Network-id(not subnet id)
+      - port-name: '{{ fixed_ip_name }}'
+    meta:
+      hostname: '{{ hostname }}'
+    volumes:
+    - '{{ data_display_name }}'
+    userdata: "{{ lookup('file', '/home/openstack-ansible/roles/create_vm_userdata/templates/userdata.j2')}}"
+
+

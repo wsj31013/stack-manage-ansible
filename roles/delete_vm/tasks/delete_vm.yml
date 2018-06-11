@@ -1,0 +1,13 @@
+---
+# tasks file for delete_vm
+
+- name: delete an instance
+  os_server:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    name: '{{ instance_display_name }}'
+    state: absent
+    timeout: 300

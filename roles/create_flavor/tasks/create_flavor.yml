@@ -1,0 +1,23 @@
+---
+# tasks file for create_flavor
+
+- name: create flavor
+  os_nova_flavor:
+    #cloud: production
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    state: present
+    name: '{{ item.name }}'
+    vcpus: '{{ item.vcpus }}'
+    ram: '{{ item.ram }}'
+    disk: '{{ item.disk }}'
+    flavorid: '{{ item.flavorid }}'
+  with_items:
+    - { name: 'm1.tiny', vcpus: '1' , ram: '512', disk: '1', flavorid: '1' }
+    - { name: 'm1.small', vcpus: '1' , ram: '2048', disk: '20', flavorid: '2' }
+    - { name: 'm1.medium', vcpus: '2' , ram: '4096', disk: '40', flavorid: '3' }
+    - { name: 'm1.large', vcpus: '4' , ram: '8192', disk: '80', flavorid: '4' }
+    - { name: 'm1.xlarge', vcpus: '8' , ram: '16384', disk: '160', flavorid: '5' }

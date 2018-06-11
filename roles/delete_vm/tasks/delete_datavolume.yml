@@ -1,0 +1,13 @@
+---
+# tasks file for delete data_volume
+
+- name: delete data volume
+  os_volume:
+    auth:
+      auth_url: '{{ auth_url }}'
+      username: '{{ username }}'
+      password: '{{ password }}'
+      project_name: '{{ project_name }}'
+    state: absent
+    display_name: '{{ data_display_name }}'
+    timeout: 300

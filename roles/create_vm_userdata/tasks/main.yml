@@ -1,0 +1,6 @@
+---
+# tasks file for roles/create_vm_userdata
+- include: create_bootvolume.yml
+- include: create_datavolume.yml
+#- include: create_vm_userdata.yml # not include fixed_ip
+- include: create_vm_userdata_with_fixed_ip.yml

@@ -1,0 +1,42 @@
+---
+
+# variables for auth
+auth_url: "http://10.10.10.10:35357/v3"
+username: "admin"
+password: "adminpassword"
+project_name: "admin"
+
+# variables for network
+network_name: "vlan-200"
+network_type: "vlan"
+physical_network: "provider1"
+segmentation_id: "200"
+
+# variables for subnet
+subnet_name: "subnet-vlan-200"
+cidr: "10.10.200.0/24"
+gateway_ip: "10.10.200.1"
+pool_start: "10.10.200.21"
+pool_end: "10.10.200.254"
+ip_version: "4"
+
+# variables for boot volume
+boot_size: "8"
+boot_display_name: "centos01-vol01"
+boot_image: "centos7"
+
+# variables for data volume
+data_size: "10"
+data_display_name: "centos01-data-vol01"
+
+# variables for data fixed_ip
+fixed_ip_name: "centos01-port01"
+fixed_ip: "10.10.200.50"
+
+# variables for instance
+instance_display_name: "centos01"
+key_file: "osc_cloud-key"
+flavor: "m1.small"
+security_groups: "default"
+network_id: "3b31d1ac-16b9-44e9-871f-76aa707ba4f7"
+hostname: "centos01"
